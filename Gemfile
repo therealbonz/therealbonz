@@ -68,7 +68,7 @@ gem 'image_magick', '~> 0.1.9'
 gem 'image_processing', '~> 1.13'
 gem 'masonry-rails', '~> 0.2.4'
 #
-gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts_as_votable', '~> 0.14.0'
 #
 gem 'acts_as_favorite', '~> 0.1.2'
 #
