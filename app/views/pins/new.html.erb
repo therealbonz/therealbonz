@@ -1,0 +1,11 @@
+<% content_for :title, "New pin" %>
+
+<h1>New pin</h1>
+
+<%= render "form", pin: @pin %>
+
+<br>
+
+<div>
+  <%= link_to "Back to pins", pins_path %>
+</div>

@@ -1,0 +1,26 @@
+<div id="<%= dom_id(pin) %>">
+  <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200, "gutter": 10 }'>
+    <% if pin.images.count == 1 %>
+      <div class="single-image-container">
+        <%= link_to pin do %>
+          <div class="grid-item single-image">
+            <p class="text-center text-warning bg-white border border-dark">
+              <%= image_tag(pin.images.first.variant(resize_to_limit: [300, 300])) %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <% pin.images.each do |image| %>
+        <%= link_to pin do %>
+          <div class="grid-item">
+            <p class="text-center text-warning bg-white border border-dark">
+              <%= image_tag(image.variant(resize_to_limit: [300, 300])) %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

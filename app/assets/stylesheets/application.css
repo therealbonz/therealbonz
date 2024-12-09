@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* Global Styles */
+body {
+  background-color: #000; /* Fixed invalid color syntax */
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Masonry container */
+#masonry-container {
+  background: #fff;
+  padding: 10px; /* Increased padding for better spacing */
+  margin-bottom: 20px;
+  border-radius: 8px; /* Slightly larger border radius for a softer look */
+  clear: both;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+}
+
+/* Clearfix utility (modern approach) */
+.clearfix::before, .clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* Masonry grid setup */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 15px; /* Increased gutter space */
+  grid-auto-rows: auto; /* Ensures grid items height adapts based on content */
+  margin: 0 auto; /* Center the grid */
+  max-width: 1200px; /* Limit max-width for large screens */
+}
+
+/* Grid item styling */
+.grid-item {
+  background-color: white;
+  border: 1px solid #ddd; /* Lighter border for a softer appearance */
+  padding: 10px; /* Increased padding for better content spacing */
+  border-radius: 5px; /* Consistent border radius */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for items */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effects for grid items */
+.grid-item:hover {
+  transform: translateY(-5px); /* Slight elevation on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+/* Centering single image */
+.single-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.single-image {
+  max-width: 100%; /* Ensure it doesn't overflow the container */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}

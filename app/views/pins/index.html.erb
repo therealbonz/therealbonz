@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Pins" %>
+
+<h1><center><u>Pins</u></center></h1>
+
+<div id="pins">
+
+  <% @pins.each do |pin| %>
+
+    <%= render pin %>
+    
+    
+  <% end %>
+</div>
+
+
+</div>
+</div>
