@@ -4,6 +4,13 @@
 
 <%= render "form", pin: @pin %>
 
+<% @pin.images.each do |image| %>
+  <div class="image-preview">
+    <%= image_tag(image.variant(resize_to_limit: [300, 300])) %>
+    <%= link_to "Remove", remove_image_pin_path(@pin, image_id: image.id), method: :get, data: { confirm: "Are you sure you want to remove this image?" } %>
+  </div>
+<% end %>
+
 <br>
 
 <div>

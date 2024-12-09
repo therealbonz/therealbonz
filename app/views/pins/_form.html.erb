@@ -1,11 +1,11 @@
-<%= form_with(model: pin) do |form| %>
+<%= form_with(model: pin, local: true) do |form| %>
   <% if pin.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <h2><%= pluralize(pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
 
       <ul>
-        <% pin.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% pin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -18,15 +18,47 @@
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
+    <%= form.text_area :description %>
   </div>
 
- <div class="field">
+  <div class="field">
     <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, accept:'image/*' %>
+    <%= form.file_field :images, multiple: true, accept: 'image/*', id: "image_input" %>
+  </div>
+
+  <!-- Preview Container -->
+  <div id="image_preview" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+    <!-- Preview images will be added here -->
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+<!-- JavaScript for Preview -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const imageInput = document.getElementById("image_input");
+    const imagePreview = document.getElementById("image_preview");
+
+    imageInput.addEventListener("change", function(event) {
+      // Clear any previous previews
+      imagePreview.innerHTML = "";
+
+      // Get the selected files
+      const files = event.target.files;
+
+      Array.from(files).forEach(file => {
+        // Create a new image element
+        const imgElement = document.createElement("img");
+        imgElement.src = URL.createObjectURL(file);
+        imgElement.alt = file.name;
+        imgElement.style = "max-width: 250px; max-height: 250px; object-fit: cover; margin-top: 10px;";
+
+        // Append the image element to the preview container
+        imagePreview.appendChild(imgElement);
+      });
+    });
+  });
+</script>

@@ -79,3 +79,9 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'jquery-rails'
 gem 'jquery'
 gem 'dartsass-rails', '~> 0.5.0'
+
+
+gem 'dropzonejs-rails'
+
+gem 'videojs_rails'
+gem 'simple_form'

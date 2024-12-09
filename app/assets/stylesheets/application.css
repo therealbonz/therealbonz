@@ -9,10 +9,18 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+ *= require_tree .
+ *= require dropzone/dropzone
+ *= require_self
+ *= require video-js
+ */
+
+
+
 /* Global Styles */
 body {
-  background-color: #000; /* Fixed invalid color syntax */
-  color: #fff;
+  background-color: #000 !important; /* Black background */
+  color: #00f !important; /* Blue text */
   font-family: sans-serif;
   margin: 0; /* Remove default body margin */
   padding: 0; /* Remove default padding */
@@ -20,7 +28,8 @@ body {
 
 /* Masonry container */
 #masonry-container {
-  background: #fff;
+  background: #000; /* Match body background */
+  color: #00f; /* Blue text */
   padding: 10px; /* Increased padding for better spacing */
   margin-bottom: 20px;
   border-radius: 8px; /* Slightly larger border radius for a softer look */
@@ -50,8 +59,9 @@ body {
 
 /* Grid item styling */
 .grid-item {
-  background-color: white;
-  border: 1px solid #ddd; /* Lighter border for a softer appearance */
+  background-color: #000; /* Match body background */
+  color: #00f; /* Blue text */
+  border: 1px solid #00f; /* Blue border for consistency */
   padding: 10px; /* Increased padding for better content spacing */
   border-radius: 5px; /* Consistent border radius */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for items */
@@ -77,3 +87,4 @@ body {
   display: block;
   margin: 0 auto; /* Center the image */
 }
+
