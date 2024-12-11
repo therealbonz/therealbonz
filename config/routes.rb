@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "spotify/index"
   resources :videos
   # Resources for pins, adding the remove_image route for each pin
   resources :pins do

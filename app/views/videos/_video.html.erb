@@ -1,13 +1,15 @@
 <div id="<%= dom_id video %>" style="width: 250px; height: 250px">
 
 
-
-<% if video && video.thumbnail.present? %>
- <%= link_to image_tag(video.thumbnail, style: "width: 100%; height: auto", alt: "Video Thumbnail"), video %>
-  <% else %>
-   <%= image_tag("http://therealbonz.com/face-keyboard.gif", style: "width: 100%; height: auto", alt: "Default Video Thumbnail") %>
-   <%= link_to "Show this video", video %>
+<article class="post">
+    <% if video && video.thumbnail.present? %>
+     <%= link_to image_tag(video.thumbnail, style: "width: 100%; height: auto", alt: "Video Thumbnail"), video %>
+     <% else %>
+     <%= image_tag("http://therealbonz.com/face-keyboard.gif", style: "width: 100%; height: auto", alt: "Default Video Thumbnail") %>
+     <%= link_to "Show this video", video %>
     <% end %>
+</article>
+
 
 
 

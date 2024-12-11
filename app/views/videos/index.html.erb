@@ -2,11 +2,27 @@
 
 <% content_for :title, "Videos" %>
 
+
 <h1> Videos</h1>
 </div>
 
-<div id="videos">
+
+<script>
+$('.container').infiniteScroll({
+  // options
+  path: '.pagination__next',
+  append: '.post',
+  history: false,
+});
+</script>
+
+<div id="videos" class="container">
   <% @videos.each do |video| %>
     <%= render video %>
+    <p>
+      
+    </p>
   <% end %>
 </div>
+
+<%= link_to "New video", new_video_path %>

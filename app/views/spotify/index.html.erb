@@ -1,0 +1,16 @@
+<h1>Spotify#index</h1>
+<p>Find me in app/views/spotify/index.html.erb</p>
+
+<%= require "uri"
+require "net/http"
+                        
+url = URI("https://v1.nocodeapi.com/brendhann/spotify/DmltInUJgVhDemNR/recentlyPlayed")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = false
+
+request = Net::HTTP::Get.new(url)
+request["Content-Type"] = "application/json"
+
+response = https.request(request)
+puts response.read_body %>

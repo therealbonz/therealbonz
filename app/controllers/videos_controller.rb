@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: %i[ show edit update destroy ]
+  before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   # GET /videos or /videos.json
   def index
@@ -49,22 +49,22 @@ class VideosController < ApplicationController
 
   # DELETE /videos/1 or /videos/1.json
   def destroy
-    @video.destroy!
-
+    @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_path, status: :see_other, notice: "Video was successfully destroyed." }
+      format.html { redirect_to videos_url, notice: "Video was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_video
-      @video = Video.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def video_params
-      params.expect(video: [ :title, :description, :clip, :thumbnail ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_video
+    @video = Video.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def video_params
+    params.require(:video).permit(:title, :description, :clip, :thumbnail)
+  end
 end
