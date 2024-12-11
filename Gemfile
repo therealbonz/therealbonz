@@ -72,7 +72,7 @@ gem 'masonry-rails', '~> 0.2.4'
 #
 
 #
-gem 'social-share-button', '~> 0.8.8'
+gem 'social-share-button', '~> 1.2.4'
 gem 'rack-cors', '~> 2.0', '>= 2.0.2'
 gem 'rmagick', '~> 6.0', '>= 6.0.1'
 gem 'devise', '~> 4.9', '>= 4.9.2'
