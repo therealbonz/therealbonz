@@ -1,28 +1,58 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Videos" %>
 
+<p style="color: green"><%= notice %></p>
 
-<h1> Videos</h1>
-</div>
-
-
-<script>
-$('.container').infiniteScroll({
-  // options
-  path: '.pagination__next',
-  append: '.post',
-  history: false,
-});
-</script>
+<h1>Videos</h1>
 
 <div id="videos" class="container">
   <% @videos.each do |video| %>
-    <%= render video %>
-    <p>
-      
-    </p>
+    <div class="video">
+      <%= render video %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New video", new_video_path %>
+<%= link_to "New video", new_video_path, class: "btn btn-primary" %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var elem = document.querySelector('.container');
+    var infScroll = new InfiniteScroll(elem, {
+      path: '.pagination__next',
+      append: '.video',
+      history: false,
+    });
+  });
+</script>
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .video {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color:rgb(44, 41, 41);
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -1,16 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @video %>
 
-<% if @video && @video.clip.present? %>
-  <%= video_tag(@video.clip, controls: true) %>
-<% else %>
-  <p>Video not available</p>
-<% end %>
 
-<div>
-  <%= link_to "Edit this video", edit_video_path(@video) %> |
-  <%= link_to "Back to videos", videos_path %>
+<div style="text-align: center;">
+  <% if @video && @video.clip.present? %>
+    <%= video_tag(@video.clip, controls: true) %>
+  <% else %>
+    <p>Video not available</p>
+  <% end %>
 
-  <%= button_to "Destroy this video", @video, method: :delete %>
+  <div>
+    <%= link_to "Edit this video", edit_video_path(@video) %> |
+    <%= link_to "Back to videos", videos_path %>
+
+    <%= button_to "Destroy this video", @video, method: :delete %>
+  </div>
 </div>
